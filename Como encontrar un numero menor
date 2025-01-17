@@ -1,0 +1,10 @@
+# Crear la lista
+numeros = [2, 45, 6, 4, 78, 90]
+
+# Encontrar el número menor
+numero_menor = min(numeros)
+
+# Imprimir el número menor
+print(f"El número menor es: {numero_menor}")
+
+#deberia salir que el numero mayor es 2
