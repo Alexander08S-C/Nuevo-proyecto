@@ -1,0 +1,29 @@
+from functools import lru_cache
+
+@lru_cache(maxsize=150)
+def operaciones(a, b, operacion):
+    if operacion == 'suma':
+        return a + b
+    elif operacion == 'resta':
+        return a - b
+    elif operacion == 'multiplicación':
+        return a * b
+    elif operacion == 'división':
+        return a / b if b != 0 else 'No se puede dividir entre cero'
+    else:
+        return 'Operación no válida'
+
+# las variables son
+a, b = 8,12
+print(f"Suma: {operaciones(a, b, 'suma')}")
+print(f"Resta: {operaciones(a, b, 'resta')}")
+print(f"Multiplicación: {operaciones(a, b, 'multiplicación')}")
+print(f"División: {operaciones(a, b, 'división')}")
+
+# Imprimir el consumo de memoria caché
+print(f"Cache info: {operaciones.cache_info()}")
+
+# Limpiar la memoria caché
+operaciones.cache_clear()
+print("Memoria caché limpiada")
+print(f"Cache info después de limpiar: {operaciones.cache_info()}")
